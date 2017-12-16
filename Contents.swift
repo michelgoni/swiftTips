@@ -70,9 +70,17 @@ let newUrl: URL = "http://nomorestrngconversion.com"
 print(newUrl.absoluteString)
 
 
+extension Date: ExpressibleByStringLiteral {
 
-
-
+    public init(stringLiteral value: String) {
+        
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd"
+        self = formatter.date(from: value)!
+    }
+}
+let newDate: Date = "2015-12-10"
+print(newDate)
 
 
 
