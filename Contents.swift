@@ -45,3 +45,39 @@ view.observe(\.isHidden, options: .new) { viewFromBlock, change in
 
 view.isHidden = true
 view.isHidden = false
+
+//UItextChecker
+extension String {
+    var isCorrectlySpelled: Bool {
+        
+        let checker = UITextChecker()
+       
+        let mispelledRange = checker.rangeOfMisspelledWord(in: self, range: NSRange(location: 0, length: self.utf16.count), startingAt: 0, wrap: false, language: "en")
+        
+        return mispelledRange.location == NSNotFound
+    }
+}
+"ter me somesing gud".isCorrectlySpelled
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
