@@ -16,3 +16,22 @@ outerLoop: for i in 1...10 {
         break
     }
 }
+
+//Defer label statements
+
+struct SavedData: Codable {
+    
+}
+
+func reloadUI () {
+    
+}
+
+loadfromJson: do {
+    
+    defer {reloadUI()}// No matter when block ends, we sneure that reloadUI will execute
+    let decoder = JSONDecoder()
+    guard let url = Bundle.main.url(forResource: "Data", withExtension: "json") else { break loadfromJson}
+    guard let contents = try? Data(contentsOf: url) else {break loadfromJson}
+    guard let decoded = try? decoder.decode(SavedData.self, from: contents) else { break loadfromJson}
+}
