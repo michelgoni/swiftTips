@@ -34,4 +34,14 @@ loadfromJson: do {
     guard let url = Bundle.main.url(forResource: "Data", withExtension: "json") else { break loadfromJson}
     guard let contents = try? Data(contentsOf: url) else {break loadfromJson}
     guard let decoded = try? decoder.decode(SavedData.self, from: contents) else { break loadfromJson}
+    print(decoded)
 }
+
+//KVO: for free in many UIKit elements
+let view = UIView()
+view.observe(\.isHidden, options: .new) { viewFromBlock, change in
+    print(change.newValue!)
+}
+
+view.isHidden = true
+view.isHidden = false
