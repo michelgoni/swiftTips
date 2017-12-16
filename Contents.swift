@@ -59,6 +59,15 @@ extension String {
 }
 "ter me somesing gud".isCorrectlySpelled
 
+//Conforming ExpressiblebyStringLiteral
+extension URL: ExpressibleByStringLiteral {
+    
+   public init(stringLiteral value: String) {
+        self = URL (string: value)!
+    }
+}
+let newUrl: URL = "http://nomorestrngconversion.com"
+print(newUrl.absoluteString)
 
 
 
